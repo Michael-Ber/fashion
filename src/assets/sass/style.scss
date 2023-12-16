@@ -1,0 +1,75 @@
+@import './var/variables';
+@import './var/mixins';
+
+@import './blocks/header';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: $text-black;
+    user-select: none;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+} 
+
+.container {
+    max-width: 1538px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: $text-black;
+    color: $white;
+    padding: 19.5px 56px;
+    transition: .3s backgroundColor ease;
+    font-size: 18px;
+    font-weight: 600;
+    &:hover {
+        background-color: lighten($text-black, 10%);
+    }
+}
+
+.title {
+    @include adaptiv-size('font-size', 55, 25);
+}
+
+.subtitle {
+    @include adaptiv-size('font-size', 35, 18);
+}
+
+.text {
+    @include adaptiv-size('font-size', 18, 14);
+}
+
+.link-hover {
+    &::after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: $text-black;
+        transition: .3s width ease;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+        }
+    }
+}
