@@ -1,0 +1,94 @@
+.catalog {
+    padding: 100px 15px;
+    &__inner {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    &__portrait {
+        @include adaptiv-size('width', 573, 200);
+        @include adaptiv-size('height', 573, 200);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        border: 1px solid rgba($text-black, .2);
+        @media(max-width: $breakpoint-1199) {
+            display: none;
+        }
+    }
+
+    &__items {
+        flex: 1 0 auto;
+    }
+
+    &__title {
+        
+        text-align: center;
+    }
+
+    &__link-wrapper{
+        text-align: center;
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 25px;
+        border-bottom: 3px solid $text-black;
+        &::after {
+            content: url('./assets/svg/link-arrow.svg');
+            margin-left: 10px;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+        row-gap: 30px;
+        margin-top: 95px;
+        @media(max-width: $breakpoint-767) {
+            grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+        }
+        @media(max-width: $breakpoint-575) {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+    }
+}
+.portrait-catalog {
+
+    &__wrapper {
+        @include adaptiv-size('width', 453, 200);
+        @include adaptiv-size('height', 453, 200);
+        border-radius: 100%;
+        position: relative;
+        z-index: -1;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.catalog-figure {
+    @include adaptiv-size('width', 310, 161);
+    @include adaptiv-size('height', 420, 204);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    justify-self: center;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    figcaption {
+        font-size: 18px;
+    }
+}

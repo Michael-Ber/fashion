@@ -2,6 +2,8 @@
 @import './var/mixins';
 
 @import './blocks/header';
+@import './blocks/hero';
+@import './blocks/catalog';
 
 * {
     margin: 0;
@@ -25,6 +27,10 @@ a {
     color: inherit;
     text-decoration: none;
 } 
+
+input {
+    color: inherit;
+}
 
 .container {
     max-width: 1538px;

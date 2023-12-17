@@ -48,16 +48,71 @@ const headerInput = () => {
     const closeInput = searchInput.querySelector('.header__search-close');
     const body = document.querySelector('body');
     searchButton.addEventListener('click', () => {
+      removeTwitching();
       searchInput.classList.toggle('js-search-wrapper_active');
       if (searchInput.classList.contains('js-search-wrapper_active')) {
-        body.style.backgroundColor = 'rgba(34, 34, 34, 0.3)';
+        body.style.overflow = 'hidden';
+        body.style.marginRight = removeTwitching() + 'px';
       } else {
-        body.style.backgroundColor = 'unset';
+        body.style.overflow = 'auto';
+        body.style.marginRight = 0;
       }
     });
     closeInput.addEventListener('click', () => {
       searchInput.classList.remove('js-search-wrapper_active');
-      body.style.backgroundColor = 'unset';
+      body.style.overflow = 'auto';
+      body.style.marginRight = 0;
+    });
+    function removeTwitching() {
+      let div = document.createElement('div');
+      div.style.visibility = 'none';
+      div.style.opacity = '0';
+      div.style.width = '50px;';
+      div.style.height = '50px;';
+      div.style.overflow = 'scroll';
+      body.appendChild(div);
+      let offset = div.offsetWidth - div.clientWidth;
+      div.remove();
+      return offset;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/assets/js/headerScroll.js":
+/*!***************************************!*\
+  !*** ./src/assets/js/headerScroll.js ***!
+  \***************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   headerScroll: () => (/* binding */ headerScroll)
+/* harmony export */ });
+const headerScroll = () => {
+  try {
+    const headerTop = document.querySelector('.js-header-top');
+    const headerBottom = document.querySelector('.js-header-bottom');
+    const heroSection = document.querySelector('.js-hero');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 100) {
+        headerTop.style.display = 'none';
+        headerBottom.style.position = 'fixed';
+        headerBottom.style.top = '0';
+        headerBottom.style.left = '0';
+        headerBottom.style.right = '0';
+        heroSection.style.marginTop = `${headerBottom.offsetHeight}px`;
+      } else if (window.scrollY < 10) {
+        headerTop.style.display = 'flex';
+        headerBottom.style.position = 'relative';
+        headerBottom.style.top = 'unset';
+        headerBottom.style.left = 'unset';
+        headerBottom.style.right = 'unset';
+        heroSection.style.marginTop = `0`;
+      }
     });
   } catch (error) {
     console.log(error);
@@ -131,11 +186,14 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _headerInput_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./headerInput.js */ "./src/assets/js/headerInput.js");
 /* harmony import */ var _burger_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./burger.js */ "./src/assets/js/burger.js");
+/* harmony import */ var _headerScroll_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./headerScroll.js */ "./src/assets/js/headerScroll.js");
+
 
 
 window.addEventListener("DOMContentLoaded", () => {
   (0,_headerInput_js__WEBPACK_IMPORTED_MODULE_0__.headerInput)();
   (0,_burger_js__WEBPACK_IMPORTED_MODULE_1__.burgerInteraction)();
+  (0,_headerScroll_js__WEBPACK_IMPORTED_MODULE_2__.headerScroll)();
 });
 })();
 
