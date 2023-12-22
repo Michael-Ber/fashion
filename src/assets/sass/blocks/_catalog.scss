@@ -1,5 +1,10 @@
 .catalog {
     padding: 100px 15px;
+
+    @media(max-width: $breakpoint-575) {
+        padding: 100px 0px;
+    }
+
     &__inner {
         display: flex;
         align-items: flex-start;
@@ -15,6 +20,7 @@
         align-items: center;
         border-radius: 100%;
         border: 1px solid rgba($text-black, .2);
+
         @media(max-width: $breakpoint-1199) {
             display: none;
         }
@@ -25,11 +31,11 @@
     }
 
     &__title {
-        
+
         text-align: center;
     }
 
-    &__link-wrapper{
+    &__link-wrapper {
         text-align: center;
     }
 
@@ -40,6 +46,7 @@
         text-align: center;
         margin-top: 25px;
         border-bottom: 3px solid $text-black;
+
         &::after {
             content: url('./assets/svg/link-arrow.svg');
             margin-left: 10px;
@@ -51,14 +58,35 @@
         grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
         row-gap: 30px;
         margin-top: 95px;
+
         @media(max-width: $breakpoint-767) {
             grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
         }
+
         @media(max-width: $breakpoint-575) {
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        }
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        row-gap: 60px;
+        column-gap: 20px;
+        margin-top: 100px;
+
+        @media(max-width: $breakpoint-1199) {
+            justify-content: center;
+        }
+
+        @media(max-width: $breakpoint-767) {
+            margin-top: 60px;
         }
     }
 }
+
 .portrait-catalog {
 
     &__wrapper {
@@ -68,6 +96,7 @@
         position: relative;
         z-index: -1;
         overflow: hidden;
+
         img {
             width: 100%;
             height: 100%;
@@ -75,6 +104,7 @@
         }
     }
 }
+
 .catalog-figure {
     @include adaptiv-size('width', 310, 161);
     @include adaptiv-size('height', 420, 204);
@@ -83,12 +113,105 @@
     justify-content: center;
     flex-direction: column;
     justify-self: center;
+
+    @media(max-width: $breakpoint-575) {
+        width: 160px;
+    }
+
     img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
+
     figcaption {
         font-size: 18px;
     }
+}
+
+.catalog-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba($text-black, .2);
+
+    &__01 {
+        margin-top: 120px;
+        margin-left: 15px;
+
+        @media(max-width: $breakpoint-991) {
+            margin-top: 0;
+            margin-left: 0;
+        }
+    }
+
+    &__02 {
+        margin-right: 15px;
+
+        @media(max-width: $breakpoint-991) {
+            margin-right: 0;
+        }
+    }
+
+    &__03 {
+        margin-top: 100px;
+
+        @media(max-width: $breakpoint-767) {
+            margin-top: 0;
+        }
+    }
+
+    &__05 {
+        margin-top: 30px;
+
+        @media(max-width: $breakpoint-767) {
+            margin-top: 0;
+        }
+    }
+
+    &_lg {
+        @include adaptiv-size('width', 694, 280);
+        @include adaptiv-size('height', 694, 262);
+    }
+
+    &_sm {
+        @include adaptiv-size('width', 452, 280);
+        @include adaptiv-size('height', 422, 262);
+    }
+
+    &__img-lg {
+        width: 82%;
+        // @include adaptiv-size('width', 574, 205);
+        // @include adaptiv-size('height', 574, 205);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__img-sm {
+        width: 73%;
+        // @include adaptiv-size('width', 574, 205);
+        // @include adaptiv-size('height', 574, 205);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 40px;
+        background-color: $white;
+    }
+
 }

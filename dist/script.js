@@ -106,7 +106,9 @@ const headerScroll = () => {
         headerBottom.style.right = '0';
         heroSection.style.marginTop = `${headerBottom.offsetHeight}px`;
       } else if (window.scrollY < 10) {
-        headerTop.style.display = 'flex';
+        if (window.matchMedia('min-width: 576px')) {
+          headerTop.style.display = 'flex';
+        }
         headerBottom.style.position = 'relative';
         headerBottom.style.top = 'unset';
         headerBottom.style.left = 'unset';

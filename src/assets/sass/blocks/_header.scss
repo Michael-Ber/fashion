@@ -1,7 +1,7 @@
 .header {
     background-color: $white;
 
-    
+
     &__top {
         display: flex;
         justify-content: space-between;
@@ -9,12 +9,15 @@
         border-bottom: 1px solid rgba($text-black, .2);
         padding-bottom: 25px;
         padding: 25px 105px 30px 100px;
+
         @media(max-width: $breakpoint-1299) {
             justify-content: center;
         }
+
         @media(max-width: $breakpoint-991) {
             padding: 25px 50px 30px 50px;
         }
+
         @media(max-width: $breakpoint-575) {
             display: none;
         }
@@ -48,9 +51,11 @@
         align-items: center;
         gap: 10px;
         transition: .3s color ease;
+
         &:hover {
             color: $orange;
         }
+
         &_phone {
             &::before {
                 content: url('./assets/svg/phone.svg');
@@ -73,11 +78,13 @@
         border-bottom: 1px solid rgba($text-black, .2);
         background-color: $white;
         z-index: 20;
+
         @media(max-width: $breakpoint-991) {
             padding: 30px 50px 30px 50px;
         }
+
         @media(max-width: $breakpoint-575) {
-            justify-content: center; 
+            justify-content: center;
             gap: 20px;
         }
     }
@@ -88,6 +95,7 @@
         @include adaptiv-size('gap', 55, 10);
         display: flex;
         flex-wrap: wrap;
+
         @media(max-width: $breakpoint-1459) {
             display: none;
         }
@@ -105,12 +113,13 @@
     }
 
     &__search {
-        
+
         display: flex;
         align-items: center;
         justify-content: flex-end;
         flex: 1 1 auto;
         cursor: pointer;
+
         @media(max-width: $breakpoint-575) {
             flex: 0 0 auto;
         }
@@ -131,7 +140,8 @@
         @include adaptiv-size('margin-left', 30, 10);
         position: relative;
         cursor: pointer;
-        @media(max-width: $breakpoint-575) { 
+
+        @media(max-width: $breakpoint-575) {
             order: 4;
         }
     }
@@ -145,7 +155,8 @@
         @include adaptiv-size('margin-left', 30, 10);
         position: relative;
         cursor: pointer;
-        @media(max-width: $breakpoint-575) { 
+
+        @media(max-width: $breakpoint-575) {
             order: 5;
         }
     }
@@ -155,6 +166,7 @@
         right: 0px;
     }
 }
+
 .header-burger {
 
 
@@ -164,24 +176,29 @@
         flex-direction: column;
         gap: 8px;
         cursor: pointer;
+
         span {
             display: block;
             width: 30px;
             height: 3px;
             background-color: $text-black;
             transition: .3s transform ease;
+
             &:nth-child(2) {
                 width: 20px;
             }
         }
+
         &_active {
             span {
                 &:nth-child(2) {
                     display: none;
                 }
+
                 &:nth-child(1) {
                     transform: rotate(45deg) translateY(7.5px);
                 }
+
                 &:nth-child(3) {
                     transform: rotate(-45deg) translateY(-7.5px);
                 }
@@ -199,6 +216,7 @@
         background-color: #fff;
         padding-bottom: 30px;
         transition: .3s all ease;
+
         &_active {
             visibility: visible;
             opacity: 1;
@@ -211,6 +229,7 @@
         flex-wrap: nowrap;
         border-bottom: 1px solid rgba($text-black, .2);
         padding: 18px 20px;
+
         @media(max-width: $breakpoint-575) {
             display: flex;
             justify-content: center;
@@ -219,9 +238,11 @@
 
     &__user-link {
         @extend .header__user-link;
+
         &_phone {
             @extend .header__user-link_phone;
         }
+
         &_account {
             @extend .header__user-link_account;
         }
@@ -235,6 +256,7 @@
     &__categories {
         padding: 0 20px;
         margin-top: 30px;
+
         &::after {
             content: '';
             display: block;
@@ -247,23 +269,28 @@
 
 
 
-    &__item, &__categories-item {
+    &__item,
+    &__categories-item {
         &:nth-child(n):not(:first-child) {
             margin-top: 30px;
         }
     }
+
     &__categories-link {
         text-transform: uppercase;
         transition: .3s all ease;
+
         &:hover {
             color: $orange;
         }
     }
 
 }
+
 .logo {
     transition: .3s transform ease;
     cursor: pointer;
+
     &:hover {
         transform: scale(1.1);
     }
@@ -273,21 +300,23 @@
     visibility: hidden;
     opacity: 0;
     transition: .3s all ease;
+
     &_active {
         visibility: visible;
         opacity: 1;
     }
 }
+
 .search-input {
     width: 100%;
-    
+
     padding: 25px 20px;
     font-size: 18px;
     transition: .3s all ease;
 
     border: none;
     outline: none;
-    
+
 }
 
 .logo-wrapper {
@@ -295,19 +324,21 @@
     @include adaptiv-size('height', 56, 25);
     @include adaptiv-size('margin-left', 60, 10);
     flex-shrink: 0;
+
     @media(max-width: $breakpoint-575) {
-        margin-left: 0;  
+        margin-left: 0;
         order: 3;
     }
+
     svg {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 }
-.js-search {
-    
-}
+
+.js-search {}
+
 .header-count {
     position: absolute;
     font-size: 12px;

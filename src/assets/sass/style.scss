@@ -26,10 +26,19 @@ a {
     position: relative;
     color: inherit;
     text-decoration: none;
-} 
+}
 
 input {
     color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
 }
 
 .container {
@@ -45,6 +54,7 @@ input {
     transition: .3s backgroundColor ease;
     font-size: 18px;
     font-weight: 600;
+
     &:hover {
         background-color: lighten($text-black, 10%);
     }
@@ -73,6 +83,7 @@ input {
         background-color: $text-black;
         transition: .3s width ease;
     }
+
     &:hover {
         &::after {
             width: 100%;
